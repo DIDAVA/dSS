@@ -29,14 +29,14 @@ try {
       header("Accept-Range: bytes");
     }
     else {
+      http_response_code(206);
+      header("Content-Type: $mime");
       $chunk = 100*1024;
       $range = str_replace('bytes=', '', $_SERVER['HTTP_RANGE']);
       list($start) = explode('-', $range, 1);
       $start = (int) $start;
       $max = $start + $chunk;
       $end = $max > $size ? $size : $max;
-      http_response_code(206);
-      header("Content-Type: $mime");
       header("Content-Range: bytes $start-$end/$size");
       echo file_get_contents($file, null, null, $start, $end);
     }

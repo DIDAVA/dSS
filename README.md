@@ -1,2 +1,2 @@
 # dSS
-PHP Stream Server
+PHP Media Stream Server

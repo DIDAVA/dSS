@@ -1,2 +1,2 @@
 # dSS
-Stream Server
+PHP Stream Server
